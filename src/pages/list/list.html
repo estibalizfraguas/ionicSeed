@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle color="corporative"> 
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lista de empleados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-avatar item-left>
+        <img src="{{item.picture.thumbnail}}">
+      </ion-avatar>
+      {{item.name.first}} {{item.name.last}}
+      <div class="item-note" item-right>
+       
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

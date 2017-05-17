@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle color="corporative" *ngIf="user.access">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello {{user.email}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Welcome to your first Ionic login!</h3>
+
+  <p [hidden]="!user.access">
+      Enhorabuena! Te has logueado correctamente con el usuario: {{user.email}}
+  </p>
+  
+  <p  [hidden]="user.access">
+      Lo sentimos! Tu usuario {{user.email}} no cuenta con permisos suficientes para acceder a la plataforma
+  </p>
+
+  <p *ngIf="!user.access">
+    <button ion-button color="corporative" (click)="goToLogin()">Intentar de nuevo</button>
+  </p>
+
+</ion-content>

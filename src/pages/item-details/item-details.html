@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem" color="corporative">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Item Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h3 text-center *ngIf="selectedItem">
+    {{selectedItem.name.first}}
+    <ion-icon [name]="selectedItem.icon"></ion-icon>
+  </h3>
+  <h4 text-center *ngIf="selectedItem">
+    You navigated here from <b>{{selectedItem.name.first}}</b>
+  </h4>
+   <ion-card>
+      <ion-card-header>
+        Bar Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        Doughnut Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
